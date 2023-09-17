@@ -1,0 +1,48 @@
+#drzewa {
+    color: green;
+}
+
+#koty {
+    color: cornflowerblue;
+}
+
+#auta {
+    color: red;
+}
+
+.kupa1 {
+    height: 15px;
+    width: 15px;
+    border-color: black;
+}
+
+.produkt_1 {
+    color: indigo;
+
+}
+
+.produkt_2 {
+    color: fuchsia;
+}
+
+.produkt_3 {
+    color: darkturquoise;
+}
+
+.obrazek_1 {
+    height: 100px;
+    width: 1000px;
+    border: 10px dotted greenyellow ;
+}
+
+.obrazek_2 {
+    height: 100000px;
+    width: 1000px;
+    border: 3px dashed red;
+}
+
+.obrazek_3 {
+    height: 100px;
+    width: 1000px;
+    border: 100px groove sienna;
+}
