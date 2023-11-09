@@ -3,6 +3,7 @@ const app = express()
 const PORT = 3000;
 const path = require("path")
 const hbs = require('express-handlebars');
+const { title } = require("process");
 
 
 app.set('views', path.join(__dirname, 'views'));         // ustalamy katalog views
@@ -25,7 +26,29 @@ const context = {
 }
 
 app.get("/", function (req, res) {
-    res.render('view3.hbs', context);   // nie podajemy ścieżki tylko nazwę pliku
+    console.log("--- cały obiekt context")
+    console.log(context)
+    console.log("--- tablica fields z obiektu context")
+    console.log(context.context)
+    res.render('view4.hbs', context);   // nie podajemy ścieżki tylko nazwę pliku
+})
+
+app.get("/handleForm", function (req, res) {
+    switch (req.query.select) {
+        case "title":
+            res.render("Title.hbs", context)
+            break;
+
+        case "lang":
+            res.render("lang.hbs", context)
+            break;
+
+        case "author":
+            res.render("author.hbs", context)
+            break;
+        default:
+            res.render("deafault.hbs")
+    }
 })
 
 app.use(express.static('static'))
