@@ -1,0 +1,23 @@
+* {
+    margin: 0; box-sizing: border-box;
+}
+
+h1 {
+    color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 5px;
+}
+
+h3 {
+    color: green;
+    font-style: italic;
+    margin: 5px;
+}
+
+.footer {
+    background-color: gray;
+    height: 50px;
+    text-align: center;
+    margin-top: calc(100% - 148px);
+}
