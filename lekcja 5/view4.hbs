@@ -1,0 +1,12 @@
+<h1>{{subject}}</h1>
+
+<form action="/handleForm" method="GET">
+    <h3>Wybierz coś</h3>
+    <select size="4" name="select">
+        {{#each fields}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+    <button type="submit"> wyślij</button>
+</form>
