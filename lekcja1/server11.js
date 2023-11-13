@@ -3,7 +3,7 @@ const app = express()
 const PORT = 3000;
 const path = require("path")
 
-app.use(express.join(__dirname, '/static'))
+app.use(express.static(__dirname + '/static'))
 
 
 app.get('/product_id/:id', function (req, res) {
