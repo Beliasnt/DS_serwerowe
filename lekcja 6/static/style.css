@@ -1,0 +1,19 @@
+* {margin: 10; padding: 0; box-sizing: border-box;}
+
+
+table {
+    margin: 20px;
+}
+
+td {
+    margin: 10px;
+    border: red solid 1px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.submit {
+    padding-left: 5px;
+    padding-right: 5px;
+}
