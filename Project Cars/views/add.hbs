@@ -1,0 +1,11 @@
+<h1 class="text-bg-info p-3">Add car page</h1>
+<div class="alert alert-success" role="alert">
+    <p class="alert-heading">New car with id = {{_id}} added to database</p>
+</div>
+<form action="/addCar" method="post" class=" m-3 p-2">
+    <input type="checkbox" name="ubezpieczony" id="ubezpieczony" class="form-check-input m-lg-1">Ubezpieczony<br>
+    <input type="checkbox" name="benzyna" id="benzyna" class="form-check-input m-lg-1">Benzyna<br>
+    <input type="checkbox" name="uszkodzony" id="uszkodzony" class="form-check-input m-lg-1">Uszkodzony<br>
+    <input type="checkbox" name="napęd4x4" id="napęd4x4" class="form-check-input m-lg-1">Napęd 4x4<br>
+    <input type="submit" value="Dodaj auto" id="sub" class=" btn-outline-warning m-lg-1 text-dark">
+</form>
