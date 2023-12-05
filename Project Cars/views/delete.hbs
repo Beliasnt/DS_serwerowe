@@ -1,0 +1,37 @@
+<h2 class=" m-4"> Delete Cars</h2>
+<form method="get">
+    <input type="submit" formaction="/deleteAll" class=" btn-danger btn m-4 " value="DELETE ALL CARS"> </button>
+    <input type="submit" formaction="/deleteSelected " class="btn-dark btn m-1" value="DELETE SELECTED"> </button>
+    <div class="alert alert-danger" role="alert">
+        <p class="alert-heading">Number of cars deleted = {{deleted}}</p>
+    </div>
+    <table class="table m-lg-4">
+        <thead>
+            <!-- nagłówek  -->
+            <tr class=" table-danger">
+                <th>Id</th>
+                <th>Ubezpieczony</th>
+                <th>Benzyna</th>
+                <th>Uszkodzony</th>
+                <th>Napęd 4x4</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lista}}
+            <!-- dla każdego auta należącego do listy  -->
+            <tr class=" table-warning">
+                <th>{{_id}}</th>
+                <th>{{ubezpieczony}}</th>
+                <th>{{benzyna}}</th>
+                <th>{{uszkodzony}}</th>
+                <th>{{napęd4x4}}</th>
+                <th><button type="submit" onclick="return confirm('Czy chcesz usunąć auto?')" formaction="/delete"
+                        class=" btn btn-danger" name="Delete" value="{{_id}}">DELETE</button></th>
+                <th><input type="checkbox" name="{{_id}}"></th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</form>
