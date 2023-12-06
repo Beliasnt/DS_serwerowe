@@ -1,8 +1,10 @@
-<h1 class="text-bg-info p-3">Add car page</h1>
-<div class="alert alert-success" role="alert">
-    <p class="alert-heading">New car with id = {{_id}} added to database</p>
+<h2 class="text-bg-info  m-5">Add car page</h2>
+{{#if message}}
+<div class="alert alert-success" role="alert" id="newCar">
+    {{message}}
 </div>
-<form action="/addCar" method="post" class=" m-3 p-2">
+{{/if}}
+<form action="/addCar" method="post" class="m-lg-5">
     <input type="checkbox" name="ubezpieczony" id="ubezpieczony" class="form-check-input m-lg-1">Ubezpieczony<br>
     <input type="checkbox" name="benzyna" id="benzyna" class="form-check-input m-lg-1">Benzyna<br>
     <input type="checkbox" name="uszkodzony" id="uszkodzony" class="form-check-input m-lg-1">Uszkodzony<br>

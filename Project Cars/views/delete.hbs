@@ -1,11 +1,17 @@
-<h2 class=" m-4"> Delete Cars</h2>
+<h2 class=" m-5"> Delete Cars page</h2>
 <form method="get">
-    <input type="submit" formaction="/deleteAll" class=" btn-danger btn m-4 " value="DELETE ALL CARS"> </button>
-    <input type="submit" formaction="/deleteSelected " class="btn-dark btn m-1" value="DELETE SELECTED"> </button>
+    <button type="submit" formaction="/deleteAll"  class=" btn-danger btn mb-4 ms-5 " value=""
+    onclick="return confirm('Czy chcesz usunąć wybrane auta?')" name="DeleteAll">DELETE ALL CARS </button>
+    
+    <button type="submit" formaction="/deleteSelected"   class="btn-dark btn mb-4" value="{{_id}}"
+     onclick="return confirm('Czy chcesz usunąć wybrane auta?')">DELETE SELECTED </button>
+    
+    {{#if message}}
     <div class="alert alert-danger" role="alert">
-        <p class="alert-heading">Number of cars deleted = {{deleted}}</p>
+        <p class="alert-heading">{{message}}</p>
     </div>
-    <table class="table m-lg-4">
+    {{/if}}
+    <table class=" table ms-5">
         <thead>
             <!-- nagłówek  -->
             <tr class=" table-danger">
@@ -27,9 +33,9 @@
                 <th>{{benzyna}}</th>
                 <th>{{uszkodzony}}</th>
                 <th>{{napęd4x4}}</th>
-                <th><button type="submit" onclick="return confirm('Czy chcesz usunąć auto?')" formaction="/delete"
+                <th><button type="submit" onclick="return confirm('Czy chcesz usunąć auto?')"  formaction="/delete"
                         class=" btn btn-danger" name="Delete" value="{{_id}}">DELETE</button></th>
-                <th><input type="checkbox" name="{{_id}}"></th>
+                <th ><input class=" me-5" type="checkbox" name="{{_id}}"></th>
             </tr>
             {{/each}}
         </tbody>

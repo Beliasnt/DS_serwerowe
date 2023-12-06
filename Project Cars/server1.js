@@ -31,7 +31,8 @@ app.get("/", function (req, res) {
 
 //wyświetlenie addCar
 app.get("/addCar", function (req, res) {
-    res.render('add.hbs',);
+
+    res.render('add.hbs');
 
 })
 
@@ -47,15 +48,16 @@ app.get("/carsList", function (req, res) {
 
 //wyświetlenie carsEdit
 app.get("/carsEdit", function (req, res) {
-    res.render('edit.hbs',);
-
+    coll1.find({}, function (err, newLista) {
+        const context = { lista: newLista }
+        res.render('edit.hbs', context);
+    });
 })
 
 //wyświetlenie carsDelete
 app.get("/carsDelete", function (req, res) {
     coll1.find({}, function (err, newLista) {
         const context = { lista: newLista }
-
         res.render('delete.hbs', context);
     });
 })
@@ -63,21 +65,35 @@ app.get("/carsDelete", function (req, res) {
 // ususwanie pojedynczych
 app.get("/delete", function (req, res) {
     const id = req.query.Delete
-    if (true) {
-        coll1.remove({ _id: `${id}` }, {}, function (err, numRemoved) {
-            const del = { deleted: numRemoved }
-            res.render("delete.hbs", del)
-        });
-    }
+    coll1.remove({ _id: `${id}` }, {}, function (err, numRemoved) {
+        res.redirect("/carsDelete")
+    });
 })
+
+
 
 // usuwanie wszystkich
 app.get("/deleteAll", function (req, res) {
-    coll1.remove({}, { multi: true }, function (err, numRemoved) {
-        const del = { deleted: numRemoved }
-        res.render("delete.hbs", del)
-    });
+    if (true) {
+        coll1.remove({}, { multi: true }, function (err, numRemoved) {
+            res.render("delete.hbs", { message: "Ilość usuniętych aut = " + numRemoved })
+        });
+    }
+});
 
+
+
+app.get("/deleteSelected", function (req, res) {
+    let doc = Object.keys(req.query)
+    console.log(doc)
+    if (true) {
+        for (let key in doc) {
+            coll1.remove({ _id: doc[key] }, function (err, numRemoved) {
+                console.log("usunięto dokument o id", doc[key])
+            });
+        }
+    }
+    res.redirect('/carsDelete')
 })
 
 
@@ -91,9 +107,8 @@ app.post("/addCar", function (req, res) {
         napęd4x4: req.body.napęd4x4 == "on" ? "tak" : "nie"
     };
     coll1.insert(lista, function (err, newLista) {
-        res.render('add.hbs', newLista);
+        res.render('add.hbs', { message: "New car with id = " + newLista._id + " added to database" });
     });
-
 })
 
 app.use(express.static('static'))

@@ -1,0 +1,25 @@
+<h2 class=" m-5"> Edit cars page</h2>
+<table class="table m-lg-5">
+    <thead>
+        <tr class=" table-dark">
+            <th>Id</th>
+            <th>Ubezpieczony</th>
+            <th>Benzyna</th>
+            <th>Uszkodzony</th>
+            <th>Napęd 4x4</th>
+            <th>EDIT</th>
+        </tr>
+    </thead>
+    <tbody >
+        {{#each lista}}
+        <tr class=" table-warning" >
+            <th>{{_id}}</th>
+            <th>{{ubezpieczony}}</th>
+            <th>{{benzyna}}</th>
+            <th>{{uszkodzony}}</th>
+            <th>{{napęd4x4}}</th>
+            <th><button class=" btn btn-dark me-2">Edit</button></th>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
