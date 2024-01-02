@@ -1,0 +1,24 @@
+<aside>
+    <div class="aside">
+        <button id="newFolder" onclick="newFolder()" class="buttonNone">Dodaj nowy folder</button>
+        <button id="newFile" class="buttonNone">Dodaj plik tekstowy</button>
+        <form action="">
+            <label for="upload" class="uploadManager">
+                Custom Upload
+                <input type="file" multiple required name="image" id="upload">
+                <input type="submit" value="OK">
+            </label>
+        </form>
+    </div>
+</aside>
+
+<script>
+    function newFolder() {
+        const element = document.getElementById("newFolder");
+        const dialog = document.createElement("DIALOG");
+        element.open = true;
+    };
+
+
+
+</script>
