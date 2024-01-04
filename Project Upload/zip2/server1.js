@@ -6,6 +6,7 @@ const hbs = require('express-handlebars');
 const formidable = require('formidable');
 const { appendFile } = require("fs");
 const { url } = require("inspector");
+const fs = require("fs")
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -145,9 +146,36 @@ app.get("/download", function (req, res) {
     res.download(result);
 });
 
-app.get("/manager", function (req,res){
-    
+
+
+app.get("/manager", function (req, res) {
     res.render("manager.hbs")
+})
+
+let contextFolder = {}
+app.get("/createFolder", function (req, res) {
+    console.log(req.query)
+    contextFolder = { name: req.query.name }
+
+    //mkdir
+    readFolder()
+    // context
+    //render
+
+    res.render("manager.hbs", contextFolder)
+})
+
+
+function readFolder() {
+    const filepath1 = path.join(__dirname, "pliki")
+    fs.readdir(filepath1, (err, files) => {
+        if (err) throw err
+        console.log("lista", files);
+    })
+}
+
+app.post("/createFile", function (req, res) {
+    res.redirect("/manager")
 })
 
 
