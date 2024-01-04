@@ -1,6 +1,6 @@
 <aside>
     <div class="aside">
-        <button id="newFolder" onclick="newFolder()" class="buttonNone">Dodaj nowy folder</button>
+        <button id="newFolder" class="buttonNone">Dodaj nowy folder</button>
         <button id="newFile" class="buttonNone">Dodaj plik tekstowy</button>
         <form action="">
             <label for="upload" class="uploadManager">
@@ -11,14 +11,47 @@
         </form>
     </div>
 </aside>
-
+<div id="container">
+    <dialog id="dialogFolder">
+        <p>Nazwa nowego folderu w</p>
+        <form action="/createFolder" method="GET">
+            <input type="text" name="name">
+            <input type="submit" value="ok">
+            <button id="cancleFolder">cancle</button>
+        </form>
+    </dialog>
+    <dialog id="dialogFile">
+        <p>Nazwa nowego pliku w</p>
+        <form action="/createFile" method="GET">
+            <input type="text" name="name">
+            <input type="submit" value="ok">
+            <button id="cancleFile">cancle</button>
+        </form>
+    </dialog>
+</div>
 <script>
-    function newFolder() {
-        const element = document.getElementById("newFolder");
-        const dialog = document.createElement("DIALOG");
-        element.open = true;
-    };
 
 
+    //dialog folder
+    const showDialogFolder = document.getElementById("newFolder")
+    const dialogFolder = document.getElementById("dialogFolder")
+    const cancleFolder = document.getElementById("cancleFolder")
+    showDialogFolder.addEventListener("click", () => {
+        dialogFolder.showModal();
+    })
+    cancleFolder.addEventListener("click", () => {
+        dialogFolder.close();
+    })
+
+    //dialog file
+    const showDialogFile = document.getElementById("newFile")
+    const dialogFile = document.getElementById("dialogFile")
+    const cancleFile = document.getElementById("cancleFile")
+    showDialogFile.addEventListener("click", () => {
+        dialogFile.showModal();
+    })
+    cancleFile.addEventListener("click", () => {
+        dialogFile.close();
+    })
 
 </script>
