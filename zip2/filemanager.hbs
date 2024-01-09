@@ -1,0 +1,36 @@
+<aside>
+    <div class="aside">
+        <p>filemanager</p>
+        <p><a href="deleteAll" class="deleteAll">USUŃ DANE O PLIKACH Z TABLICY</a></p>
+    </div>
+</aside>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Icon</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Type</th>
+            <th>-</th>
+            <th>-</th>
+            <th>-</th>
+            <th>-</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each files}}
+        <tr>
+            <td>{{id}}</td>
+            <td><img src="{{icon}}" alt="{{icon}}"></td>
+            <td>{{name}}</td>
+            <td>{{size}}</td>
+            <td>{{type}}</td>
+            <td><a href="/show?id={{id}}">SHOW</a></td>
+            <td><a href="/info?id={{id}}">INFO</a></td>
+            <td><a href="/download?id={{id}}">DOWNLOAD</a></td>
+            <td><a href="/delete?id={{id}}">DELETE</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
