@@ -1,0 +1,87 @@
+<div class="flex">
+	<div class="lewy">
+		<button type="button" onclick="newfolder()">nowy folder</button><br />
+		<button type="button" onclick="newfile()">nowy plik tekstowy</button><br />
+		<form enctype="multipart/form-data" action="/upload" method="post">
+			<input
+				type="file"
+				multiple
+				required
+				accept="image/*"
+				name="imagetoupload"
+			/>
+			<input type="submit" value="OK" class="input" />
+		</form>
+	</div>
+	<div class="prawy">
+		<div>
+			{{#each d}}
+				<div class="obiekt">
+					<img src="{{obraz}}" alt="{{obraz}}" />
+					<button
+						form="rmdform"
+						type="submit"
+						value="{{nazwa}}"
+						name="nDir"
+					>x</button>
+					<form id="rmdform" action="/rmdirectory"></form>
+					<div>{{nazwa}}</div>
+				</div>
+			{{/each}}
+		</div>
+		<div>
+			{{#each f}}
+				<div class="obiekt">
+					<img src="{{obraz}}" alt="{{obraz}}" />
+					<button
+						form="rmfform"
+						type="submit"
+						value="{{nazwa}}"
+						name="nFile"
+					>x</button>
+					<form id="rmfform" action="/rmfile">
+						<div>{{nazwa}}</div>
+					</form>
+
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+<dialog id="dialogfile">
+	<form action="/filemanagerP" method="get">
+		<p>Nazwa pliku w</p>
+		<input
+			type="text"
+			name="nazwaPliku"
+			placeholder="Wpisz nazwę pliku"
+			class="itext"
+		/>
+		<input type="submit" value="OK" class="input" />
+		<button type="button" onclick="cancelfile()" class="cancel">CANCEL</button>
+	</form>
+</dialog>
+<dialog id="dialogfolder">
+	<p>Nazwa folderu w</p>
+	<form action="/filemanagerF" method="get">
+		<input
+			type="text"
+			name="nazwaFolderu"
+			placeholder="Wpisz nazwę folderu"
+			class="itext"
+		/>
+		<input type="submit" value="OK" class="input" />
+		<button
+			type="button"
+			onclick="cancelfolder()"
+			class="cancel"
+		>CANCEL</button>
+	</form>
+</dialog>
+
+<script>
+	function newfolder() { document.getElementById("dialogfolder").showModal(); }
+	function newfile() { document.getElementById("dialogfile").showModal(); }
+	function cancelfile() { document.getElementById("dialogfile").close(); }
+	function cancelfolder() { document.getElementById("dialogfolder").close(); }
+</script>

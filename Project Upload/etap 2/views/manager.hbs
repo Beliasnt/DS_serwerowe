@@ -1,0 +1,76 @@
+<aside>
+    <div class="aside">
+        <button id="newFolder" class="buttonNone">Dodaj nowy folder</button>
+        <button id="newFile" class="buttonNone">Dodaj plik tekstowy</button>
+        <form action="">
+            <label for="upload" class="uploadManager">
+                Custom Upload
+                <input type="file" multiple required name="image" id="upload">
+                <input type="submit" value="OK">
+            </label>
+        </form>
+    </div>
+</aside>
+<div id="container">
+    <dialog id="dialogFolder">
+        <p>Nazwa nowego folderu w</p>
+        <form action="/createFolder" method="GET" class="dialog">
+            <input type="text" name="name">
+            <input type="submit" value="ok">
+        </form>
+        <button id="cancleFolder">cancle</button>
+    </dialog>
+    <dialog id="dialogFile">
+        <p>Nazwa nowego pliku w</p>
+        <form action="/createFile" method="GET" class="dialog">
+            <input type="text" name="name">
+            <input type="submit" value="ok">
+        </form>
+        <button id="cancleFile">cancle</button>
+    </dialog>
+    <div id="main">
+        {{#each folders}}
+        <div class="folder">
+            <img src="{{icon}}" class="icons">
+            <p> {{name}}
+                <a href="/deleteM?name={{name}}">X</a>
+            </p>
+        </div>
+        {{/each}}
+        {{#each files}}
+        <div class="files">
+            <img src="{{icon}}" class="icons">
+            <p> {{name}}
+                <a href="/deleteM?name={{name}}">X</a>
+            </p>
+            </form>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script>
+
+
+    //dialog folder
+    const showDialogFolder = document.getElementById("newFolder")
+    const dialogFolder = document.getElementById("dialogFolder")
+    const cancleFolder = document.getElementById("cancleFolder")
+    showDialogFolder.addEventListener("click", () => {
+        dialogFolder.showModal();
+    })
+    cancleFolder.addEventListener("click", () => {
+        dialogFolder.close();
+    })
+
+    //dialog file
+    const showDialogFile = document.getElementById("newFile")
+    const dialogFile = document.getElementById("dialogFile")
+    const cancleFile = document.getElementById("cancleFile")
+    showDialogFile.addEventListener("click", () => {
+        dialogFile.showModal();
+    })
+    cancleFile.addEventListener("click", () => {
+        dialogFile.close();
+    })
+
+</script>
