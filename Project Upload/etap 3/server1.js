@@ -327,6 +327,7 @@ app.post("/uploadManager", function (req, res) {
 })
 
 
+
 app.use(express.static('static'))
 
 app.listen(PORT, function () {

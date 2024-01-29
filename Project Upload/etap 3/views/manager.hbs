@@ -13,7 +13,7 @@
     </div>
 </aside>
 <div id="container">
-    <dialog id="dialogFolder">
+    <dialog id="dialogFolder"  class="dialogStyle">
         <p>Nazwa nowego folderu w</p>
         <form action="/createFolder" method="GET" class="dialog">
             <input type="text" name="name">
@@ -22,7 +22,7 @@
         </form>
         <button id="cancleFolder">cancle</button>
     </dialog>
-    <dialog id="dialogFile">
+    <dialog id="dialogFile"  class="dialogStyle">
         <p>Nazwa nowego pliku w</p>
         <form action="/createFile" method="GET" class="dialog">
             <input type="text" name="name">
@@ -31,7 +31,7 @@
         </form>
         <button id="cancleFile">cancle</button>
     </dialog>
-    <dialog id="dialogChangeName">
+    <dialog id="dialogChangeName" class="dialogStyle">
         <p>Zmiana nazwy folderu "{{pathTemp}}"</p>
         <form action="/changeName" method="GET" class="dialog">
             <input type="text" name="name">
