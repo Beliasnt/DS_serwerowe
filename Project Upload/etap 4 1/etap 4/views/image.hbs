@@ -1,0 +1,51 @@
+<aside>
+    <div class="aside">
+        <div class="button" id="panel">filters</div>
+    </div>
+</aside>
+<div class="cont">
+    <div class="nameBar">
+        <div>{{nameBar}}</div>
+    </div>
+    <div id="menu" class="menu">
+        <h3>FILTERS</h3>
+        {{#each effects}}
+        <p>{{name}}</p>
+        <img src='./{{file}}' style="filter: {{name}}(100%); height:75px; margin-bottom:15px" alter="image {{name}}"
+            id="{{name}}" name="filtr" title="{{name}}">
+        {{/each}}
+        <p>none</p>
+        <img src='./{{nameBar}}' alt="image none" id="none" style="height:75px">
+    </div>
+</div>
+<div class="mainImage" id="main">
+    <img src='./{{nameBar}}' alt="imageMain" style="height:250px" id="mainImage">
+</div>
+<script>
+    let menu = document.getElementById("menu")
+    let panel = document.getElementById("panel")
+    let contextButton = true
+    panel.addEventListener("click", function () {
+        if (contextButton) {
+            menu.style.width = "150px"
+            contextButton = false
+        }
+        else {
+            menu.style.width = "0px"
+            contextButton = true
+        }
+    })
+
+    let mainImage = document.getElementById('mainImage')
+    let filtr = document.getElementsByName("filtr")
+    for (let i = 0; i < filtr.length; i++) {
+        filtr[i].addEventListener("click", function (title) {
+            mainImage.style.filter = `${filtr[i].title}(100%)`
+        })
+    }
+    let none = document.getElementById("none")
+    none.addEventListener("click", function () {
+            mainImage.style.filter = ``
+        })
+
+</script>

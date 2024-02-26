@@ -1,0 +1,20 @@
+<aside>
+    <div class="aside" id="nav">
+        <button class="menuBtn" id="menuBtn">Filters</button>
+    </div>
+</aside>
+<div class="nameBar">
+    <div>{{nameBar}}</div>
+    <div style="background-image:url('{{filepath3}}')">bla</div>
+</div>
+{{!-- <div id="menu" class="menu"> --}}
+</div>
+
+<script>
+    let menuBtn = document.getElementById("menuBtn")
+    let menu = document.getElementById("menu")
+    let contextButton = true
+    menuBtn.addEventListener("click", () => {
+        contextButton ? (contextButton = false, menu.style.width = "100px") : (contextButton = true, menu.style.width = "0px")
+    })
+</script>

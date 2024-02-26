@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+li {
+    display: inline;
+    padding-left: 15px;
+    margin: 15px;
+
+}
+
+a {
+    color: black;
+    font-size: 1.2em;
+    padding: 3px;
+    width: fit-content;
+}
+
+#navbarNav {
+    height: 30px;
+    background-color: skyblue;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+input {
+    display: flex;
+    padding: 3px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.aside {
+    margin-top: -20px;
+    width: 150px;
+    height: calc(100vh - 30px);
+    background-color: lightgrey;
+    text-align: center;
+    float: left
+}
+
+p {
+    margin-top: 5px;
+    color: grey;
+}
+
+table {
+    margin-top: -22px;
+    margin-left: 120px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+td,
+th {
+    text-align: center;
+    width: 75px;
+}
+
+img {
+    height: 50px;
+}
+
+.deleteAll {
+    color: darkslategray
+}
+
+.content {
+    margin-left: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.uploadManager {
+    display: flex;
+}
+
+.buttonNone {
+    text-decoration: none;
+    height: 30px;
+}
+
+#container {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+
+}
+
+.folder {
+    height: max-content;
+    width: max-content;
+    margin: 10px;
+    background-color: rgb(133, 226, 235);
+    border-radius: 10px;
+}
+
+.files {
+    height: max-content;
+    width: max-content;
+    margin: 10px;
+    background-color: plum;
+    border-radius: 10px;
+}
+
+#main {
+    display: flex;
+    width: calc(100vw - 180px);
+    flex-wrap: wrap;
+}
+
+.icons {
+    height: 35px;
+    width: 35px;
+}
+
+
+#dialogFolder {
+    background-color: rgb(133, 226, 235);
+}
+
+#dialogFile {
+    background-color: plum
+}
+
+#dialogChangeName {
+    background-color: wheat;
+
+}
+
+.dialogStyle {
+    height: 110px;
+    width: max-content;
+    padding-inline: 5px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.dialog {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+
+.path {
+    width: calc(100vw - 150px);
+}
+
+.fonts {
+    margin-top: 10px;
+    display: flex;
+    margin-left: 12.5px;
+
+}
+
+.fontMinus {
+    background-color: rgb(150, 215, 245);
+    border: 0px;
+    height: 30px;
+    width: 30px;
+    border-left: 1px solid rgb(150, 215, 245);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.kolory {
+    background-color: rgb(70, 215, 245);
+    border: 0px;
+    height: 30px;
+    width: 65px;
+}
+
+.fontPlus {
+    background-color: rgb(20, 205, 245);
+    border: 0px;
+    height: 30px;
+    width: 30px;
+    border-right: 1px solid rgb(150, 215, 245);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.nameBar {
+    margin-top: -20px;
+    background-color: grey;
+    color: white;
+    float: left;
+    width: calc(100vw - 150px);
+
+}
+
+.area {
+    margin-top: -2px;
+    height: calc(100vh - 230px);
+    width: calc(100vw - 180px);
+    border: none;
+    outline: none;
+}
+
+.cont {
+    width: 100vw;
+}
+
+.enter {
+    margin-top: -2px;
+    height: calc(100vh - 230px);
+    width: 30px;
+    color: teal;
+    float: left;
+    border-right: 2px green solid;
+    overflow-y: scroll;
+    overflow: hidden;
+    text-align: center;
+}
+
+.buttonAside {
+    margin-bottom: 5px;
+    border: 1px lavender solid;
+    border-radius: 6px;
+    background-color: rgb(70, 215, 245);
+    width: 125px;
+}
+
+.buttonAside:hover {
+    background-color: steelblue;
+}
+
+button:hover,
+#saveFileButn {
+    cursor: pointer;
+}
+
+
+.menu {
+    width: 0px;
+    height: calc(100vh - 50px);
+    margin-left: 110px;
+    text-align: center;
+    background-color: whitesmoke;
+    transition: 1s;
+}
+
+.mainImage {
+    background-color: black;
+    height: 300px;
+    width: calc(100vw - 500px);
+    border: 2px dotted blueviolet;
+    align-items: center;
+    margin-left: 250px;
+
+}

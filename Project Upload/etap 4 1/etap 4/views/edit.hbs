@@ -1,0 +1,76 @@
+<aside>
+    <div class="aside" id="nav">
+        <label class="fonts">
+            <button class="fontMinus"><a href='/fontMinus'>-</a></button>
+            <button class="kolory"><a href='/color'>kolory</a></button>
+            <button class="fontPlus"><a href='/fontPlus'>+</a></button>
+        </label>
+        <button id="saveSettings" class="buttonAside"><a href="/saveSettings">Zapisz ustawienia</a></button>
+        <button id="changeName" class="buttonAside">Zmiana nazwy</button>
+        <a href="/podglad">Podgląd pliku</a>
+</aside>
+
+<dialog id="dialogChangeName" class="dialogStyle">
+    <p>Zmiana nazwy pliku {{nameBar}}</p>
+    <form action="/changeNameFile" method="GET" class="dialog">
+        <input type="text" name="name">
+        <input type="hidden" name="root" value="{{root}}" />
+        <input type="submit" value="ok">
+    </form>
+    <button id="cancleChange">cancle</button>
+</dialog>
+
+<div class="cont">
+    <div class="nameBar">
+        <div>{{nameBar}}</div>
+    </div>
+    <div class="oveflow">
+        <div id="enter" class="enter" style="background-color: {{color}}; font-size: {{fontSize}}px"></div>
+        <form action="/save" method="get">
+            <textarea id="textarea" class="area"
+                style="background-color: {{color}}; color:{{font}}; font-size: {{fontSize}}px">{{contextF}}</textarea>
+            <input type="hidden" name="array" id="arrayInput">
+            <input type="submit" value="Zapisz plik" id="saveFileButn">
+        </form>
+    </div>
+</div>
+
+<script>
+    function enterScroll() {
+        let area = document.getElementById("textarea");
+        let enter = document.getElementById("enter");
+        let splicior = area.value.split("\n");
+        enter.innerText = '';
+        for (let i = 1; i < splicior.length + 1; i++) {
+            enter.innerText += i + "\n";
+        }
+        document.getElementById("arrayInput").value = JSON.stringify(splicior);
+    }
+
+    function scroll() {
+        document.getElementById("enter").scrollTop = document.getElementById("textarea").scrollTop;
+    }
+
+    document.getElementById("textarea").addEventListener("input", enterScroll);
+    document.getElementById("textarea").addEventListener("scroll", scroll)
+
+    //funkcja działa
+    enterScroll();
+    scroll();
+
+    const showChangeName = document.getElementById("changeName")
+    const dialogChangeName = document.getElementById("dialogChangeName")
+    const cancleChange = document.getElementById("cancleChange")
+    showChangeName.addEventListener("click", () => {
+        dialogChangeName.showModal();
+    })
+    cancleChange.addEventListener("click", () => {
+        dialogChangeName.close();
+    })
+
+
+
+
+
+
+</script>

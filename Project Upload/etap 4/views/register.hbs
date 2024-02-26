@@ -1,0 +1,21 @@
+<div class="registerNav">
+    <h1>REGISTER</h1>
+    <a href="/login"> <button class="buttonMenu">Login</button></a>
+    <a href="/upload"><button class="buttonMenu">Upload</button></a>
+    <a href="/manager"><button class="buttonMenu">File Manager</button></a>
+</div>
+<div class="formRegister">
+    <form action="/register" method="POST">
+        <input type="text" name="name" id="name" placeholder="Enter name" class="formInput">
+        <input type="password" id="pass" name="pass" placeholder="Enter pass" class="formInput" minlength="3" required>
+        <input type="password" name="confirmPass" placeholder="Confirm pass" class="formInput" minlength="3" required>
+        <input type="submit" value="Register" class="formInput" id="registerSubmit">
+    </form>
+</div>
+
+
+
+<script>
+    document.getElementById("navbarNav").style.display = "none"
+
+</script>

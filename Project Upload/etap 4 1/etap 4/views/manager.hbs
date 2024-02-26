@@ -1,0 +1,122 @@
+<aside>
+    <div class="aside" id="nav">
+        <button id="newFolder" class="buttonNone buttonAside">Dodaj nowy folder   </button>
+        <button id="newFile" class="buttonNone buttonAside">Dodaj nowy plik</button>
+        <button id="changeName" class="buttonNone buttonAside" style="display:none; margin-left: 12.5px">Zmień nazwę folderu</button>
+        <form action="/uploadManager" method="POST" enctype="multipart/form-data">
+            <label for="upload" class="uploadManager">
+                Custom Upload
+                <input type="file" multiple required name="files" id="upload">
+                <input type="submit" value="OK">
+            </label>
+        </form>
+    </div>
+</aside>
+<div id="container">
+    <dialog id="dialogFolder" class="dialogStyle">
+        <p>Nazwa nowego folderu w</p>
+        <form action="/createFolder" method="GET" class="dialog">
+            <input type="text" name="name">
+            <input type="hidden" name="root" value="{{root}}" />
+            <input type="submit" value="ok">
+        </form>
+        <button id="cancleFolder">cancle</button>
+    </dialog>
+    <dialog id="dialogFile" class="dialogStyle">
+        <p>Nazwa nowego pliku w</p>
+        <form action="/createFile" method="GET" class="dialog">
+            <input type="text" name="name">
+            <input type="hidden" name="root" value="{{root}}" />
+            <select name="select">
+                <option id="txt">txt</option>
+                <option id="css">css</option>
+                <option id="js">js</option>
+                <option id="html">html</option>
+            </select>
+            <input type="submit" value="ok">
+        </form>
+        <button id="cancleFile">cancle</button>
+    </dialog>
+    <dialog id="dialogChangeName" class="dialogStyle">
+        <p>Zmiana nazwy folderu "{{pathTemp}}"</p>
+        <form action="/changeName" method="GET" class="dialog">
+            <input type="text" name="name">
+            <input type="hidden" name="root" value="{{root}}" />
+            <input type="submit" value="ok">
+        </form>
+        <button id="cancleChange">cancle</button>
+    </dialog>
+
+    <!-- main -->
+    <div class="path">
+        {{#each pathM}}
+        <a href="/pliki?name={{this}}">{{this}}</a> >
+        {{/each}}
+    </div>
+    <div id="main">
+        {{#each folders}}
+        <div class="folder">
+            <a href="/catalog?root={{name}}">
+                <img src="gfx/folder.png" class="icons">
+                <p> {{name}}
+                    <a href="/deleteM?name={{name}}">X</a>
+                </p>
+            </a>
+        </div>
+        {{/each}}
+        {{#each files}}
+        <a href="/file?root={{name}}">
+            <div class="files">
+                <img src="gfx/{{icon ext}}.png" class="icons">
+                <p> {{name}}
+                    <a href="/deleteM?name={{name}}">X</a>
+                </p>
+                </form>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>
+<script>
+
+
+    //dialog folder
+    const showDialogFolder = document.getElementById("newFolder")
+    const dialogFolder = document.getElementById("dialogFolder")
+    const cancleFolder = document.getElementById("cancleFolder")
+    showDialogFolder.addEventListener("click", () => {
+        dialogFolder.showModal();
+    })
+    cancleFolder.addEventListener("click", () => {
+        dialogFolder.close();
+    })
+
+    //dialog file
+    const showDialogFile = document.getElementById("newFile")
+    const dialogFile = document.getElementById("dialogFile")
+    const cancleFile = document.getElementById("cancleFile")
+    showDialogFile.addEventListener("click", () => {
+        dialogFile.showModal();
+    })
+    cancleFile.addEventListener("click", () => {
+        dialogFile.close();
+    })
+
+    if ({{ contextButton }} == true) {
+        let changeName = document.getElementById("changeName")
+        changeName.style.display = "block"
+    }
+
+    const showChangeName = document.getElementById("changeName")
+    const dialogChangeName = document.getElementById("dialogChangeName")
+    const cancleChange = document.getElementById("cancleChange")
+    showChangeName.addEventListener("click", () => {
+        dialogChangeName.showModal();
+    })
+    cancleChange.addEventListener("click", () => {
+        dialogChangeName.close();
+    })
+
+
+
+</script>

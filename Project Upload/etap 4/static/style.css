@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+li {
+    display: inline;
+    padding-left: 15px;
+    margin: 15px;
+
+}
+
+a {
+    color: black;
+    font-size: 1.2em;
+    padding: 3px;
+    width: fit-content;
+}
+
+#navbarNav {
+    height: 30px;
+    background-color: skyblue;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+input {
+    display: flex;
+    padding: 3px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.aside {
+    margin-top: -20px;
+    width: 150px;
+    height: calc(100vh - 30px);
+    background-color: lightgrey;
+    text-align: center;
+    float: left
+}
+
+p {
+    margin-top: 5px;
+    color: grey;
+}
+
+table {
+    margin-top: -22px;
+    margin-left: 120px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+td,
+th {
+    text-align: center;
+    width: 75px;
+}
+
+img {
+    height: 50px;
+}
+
+.deleteAll {
+    color: darkslategray
+}
+
+.content {
+    margin-left: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.uploadManager {
+    display: flex;
+}
+
+.buttonNone {
+    text-decoration: none;
+    height: 30px;
+}
+
+#container {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+
+}
+
+.folder {
+    height: max-content;
+    width: max-content;
+    margin: 10px;
+    background-color: rgb(133, 226, 235);
+    border-radius: 10px;
+}
+
+.files {
+    height: max-content;
+    width: max-content;
+    margin: 10px;
+    background-color: plum;
+    border-radius: 10px;
+}
+
+#main {
+    display: flex;
+    width: calc(100vw - 180px);
+    flex-wrap: wrap;
+}
+
+.icons {
+    height: 35px;
+    width: 35px;
+}
+
+
+#dialogFolder {
+    background-color: rgb(133, 226, 235);
+}
+
+#dialogFile {
+    background-color: plum
+}
+
+#dialogChangeName {
+    background-color: wheat;
+
+}
+
+.dialogStyle {
+    height: 110px;
+    width: max-content;
+    padding-inline: 5px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 5px;
+}
+
+.dialog {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+
+.path {
+    width: calc(100vw - 150px);
+}
+
+.fonts {
+    margin-top: 10px;
+    display: flex;
+    margin-left: 12.5px;
+
+}
+
+.fontMinus {
+    border-left: 1px solid rgb(150, 215, 245);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.kolory {
+    background-color: rgb(70, 215, 245);
+    border: 0px;
+    height: 30px;
+    width: 65px;
+}
+
+.font {
+    background-color: rgb(150, 215, 245);
+    border: 0px;
+    height: 30px;
+    width: 30px;
+}
+
+.fontPlus {
+    border-right: 1px solid rgb(150, 215, 245);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.nameBar {
+    margin-top: -20px;
+    background-color: grey;
+    color: white;
+    float: left;
+    width: calc(100vw - 150px);
+
+}
+
+.area {
+    margin-top: -2px;
+    height: calc(100vh - 230px);
+    width: calc(100vw - 200px);
+    border: none;
+    outline: none;
+}
+
+.cont {
+    width: 100vw;
+}
+
+.enter {
+    margin-top: -2px;
+    height: calc(100vh - 230px);
+    width: 50px;
+    color: teal;
+    float: left;
+    border-right: 2px green solid;
+    overflow-y: scroll;
+    overflow: hidden;
+    text-align: center;
+}
+
+.buttonAside {
+    margin-top: 7px;
+    border: 1px lavender solid;
+    border-radius: 6px;
+    background-color: rgb(70, 215, 245);
+    width: 125px;
+    height: 30px;
+}
+
+.buttonAside:hover {
+    background-color: steelblue;
+}
+
+button:hover,
+#saveFileButn {
+    cursor: pointer;
+}
+
+
+.menu {
+    max-width: 0px;
+    overflow: hidden;
+    height: calc(100vh - 50px);
+    margin-left: 110px;
+    text-align: center;
+    background-color: whitesmoke;
+    transition: max-width 1s;
+    display: none;
+}
+
+
+.menu.expanded {
+    max-width: 200px;
+    /* Expand the max-width to show the menu */
+}
+
+.menu.expanded+.mainImage {
+    margin-left: 200px;
+    /* Adjust the margin-left when the menu is expanded */
+}
+
+
+.mainImage {
+    background-color: rgba(5, 5, 20);
+    /* Light gray background */
+    border: 2px dashed white;
+    /* Light gray border */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Shadow effect */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    position: fixed;
+    /* Position fixed to keep it in the viewport */
+    top: 50%;
+    /* Move to the center vertically */
+    left: 55%;
+    /* Move to the center horizontally */
+    transform: translate(-50%, -50%);
+    /* Correct the positioning to center */
+    width: calc(40% + 30px);
+    height: calc(55% + 10px);
+    z-index: 999;
+    /* Ensure it appears above other content */
+}
+
+.registerNav {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttonMenu {
+    margin-top: 7px;
+    border: 1px lavender solid;
+    border-radius: 8px;
+    background-color: lemonchiffon;
+    width: 125px;
+    height: 40px;
+}
+
+.buttonAside:hover {
+    background-color: steelblue;
+}
+
+.formRegister {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.formInput {
+    margin-top: 15px;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#registerSubmit {
+    text-align: center;
+    padding-left: 90px;
+}

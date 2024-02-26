@@ -1,0 +1,95 @@
+<aside>
+    <div class="aside">
+        <button class="buttonAside" id="panel">Filters</button>
+        <button id="changeName" class="buttonAside">Zmiana nazwy</button>
+        <a href="/podglad"><button class="buttonAside" style="height: 45px;">Podgląd pliku</button></a>
+        <a href="/saveImage"> <button class="buttonAside" style="height: 45px;">Zapisz zdjęcie</button></a>
+    </div>
+</aside>
+<div class="cont">
+    <div class="nameBar">
+        <div>{{nameBar}}</div>
+    </div>
+    <div id="menu" class="menu">
+        <h3>FILTERS</h3>
+        {{#each effects}}
+        <p>{{name}}</p>
+        <img src='./{{file}}' style="filter: {{name}}(100%); height:75px; margin-bottom:15px" alter="image {{name}}"
+            id="{{name}}" name="filtr" title="{{name}}">
+        {{/each}}
+        <p>none</p>
+        <img src='./{{nameBar}}' alt="image none" id="none" style="height:75px">
+    </div>
+</div>
+<dialog id="dialogChangeName" class="dialogStyle">
+    <p>Zmiana nazwy pliku {{nameBar}}</p>
+    <form action="/changeNameFile" method="GET" class="dialog">
+        <input type="text" name="name">
+        <input type="hidden" name="root" value="{{root}}" />
+        <input type="submit" value="ok">
+    </form>
+    <button id="cancleChange">cancle</button>
+</dialog>
+
+<div class="mainImage" id="mainImg">
+    <img src='./{{nameBar}}' alt="imageMain" style="height:300px" id="mainImage">
+</div>
+<script>
+    let menu = document.getElementById("menu")
+    let panel = document.getElementById("panel")
+    let contextButton = true
+    panel.addEventListener("click", function () {
+        if (contextButton) {
+            menu.style.display = "block";
+            setTimeout(function () {
+                menu.classList.add("expanded");
+            }, 100);
+            contextButton = false;
+        } else {
+            menu.classList.remove("expanded");
+            setTimeout(function () {
+                menu.style.display = "none";
+            }, 1001);
+            contextButton = true;
+        }
+    });
+
+    // TWORZENIE CANVASU
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d')
+    const mainImageDiv = document.getElementById("mainImage")
+    let image = new Image()
+    image.src = mainImageDiv.src
+    console.log(image.src)
+    image.onload = function () {
+        canvas.width = mainImageDiv.width // testowa szerokość, docelowo trzeba zamienić na rzeczywistą szerokość obrazka
+        canvas.height = mainImageDiv.height // testowa wysokość, docelowo trzeba zamienić na rzeczywistą wysokość obrazka
+        context.filter = "grayscale(100%)"; // przykładowy filtr
+        context.drawImage(image, 0, 0, canvas.width, canvas.height); // obrazek z filtrem widocznym na canvasie
+    }
+
+
+    let mainImage = document.getElementById('mainImage')
+    let filtr = document.getElementsByName("filtr")
+    for (let i = 0; i < filtr.length; i++) {
+        filtr[i].addEventListener("click", function (title) {
+            mainImage.style.filter = `${filtr[i].title}(100%)`
+        })
+    }
+    let none = document.getElementById("none")
+    none.addEventListener("click", function () {
+        mainImage.style.filter = ``
+    })
+
+
+    const showChangeName = document.getElementById("changeName")
+    const dialogChangeName = document.getElementById("dialogChangeName")
+    const cancleChange = document.getElementById("cancleChange")
+    showChangeName.addEventListener("click", () => {
+        dialogChangeName.showModal();
+    })
+    cancleChange.addEventListener("click", () => {
+        dialogChangeName.close();
+    })
+
+</script>
